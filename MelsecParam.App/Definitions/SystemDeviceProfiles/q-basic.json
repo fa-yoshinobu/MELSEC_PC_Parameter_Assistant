@@ -1,0 +1,13 @@
+{
+  "id": "q-basic",
+  "displayName": "Qベーシックモデル",
+  "devices": [
+    { "symbol": "P", "displayName": "ポインタ", "points": 300, "range": "P0～P299" },
+    { "symbol": "I", "displayName": "割込みポインタ", "points": 128, "range": "I0～I127" },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 1024 },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 1024 },
+    { "symbol": "FX", "displayName": "ファンクション入力", "points": 16 },
+    { "symbol": "FY", "displayName": "ファンクション出力", "points": 16 },
+    { "symbol": "FD", "displayName": "ファンクションレジスタ", "pointsText": "5点×4ワード" }
+  ]
+}

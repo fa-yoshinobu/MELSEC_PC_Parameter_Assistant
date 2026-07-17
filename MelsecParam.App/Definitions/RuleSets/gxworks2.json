@@ -1,0 +1,25 @@
+{
+  "id": "gxworks2",
+  "displayName": "GX Works2 / GX Developer 共通計算",
+  "devices": [
+    { "symbol": "X", "name": "入力リレー", "areaId": "device", "kind": "bit", "radix": 16, "defaultPoints": 8192, "settingUnit": 16, "maxPoints": 8192, "fixed": true, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "Y", "name": "出力リレー", "areaId": "device", "kind": "bit", "radix": 16, "defaultPoints": 8192, "settingUnit": 16, "maxPoints": 8192, "fixed": true, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "M", "name": "内部リレー", "areaId": "device", "kind": "bit", "radix": 10, "defaultPoints": 8192, "settingUnit": 16, "maxPoints": 61440, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "L", "name": "ラッチリレー", "areaId": "device", "kind": "bit", "radix": 10, "defaultPoints": 8192, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "B", "name": "リンクリレー", "areaId": "device", "kind": "bit", "radix": 16, "defaultPoints": 8192, "settingUnit": 16, "maxPoints": 61440, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "F", "name": "アナンシェータ", "areaId": "device", "kind": "bit", "radix": 10, "defaultPoints": 2048, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "SB", "name": "リンク特殊リレー", "areaId": "device", "kind": "bit", "radix": 16, "defaultPoints": 2048, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "V", "name": "エッジリレー", "areaId": "device", "kind": "bit", "radix": 10, "defaultPoints": 2048, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "S", "name": "ステップリレー", "areaId": "device", "kind": "bit", "radix": 10, "defaultPoints": 8192, "settingUnit": 1024, "maxPoints": 16384, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "T", "name": "タイマ", "areaId": "device", "kind": "timer", "radix": 10, "defaultPoints": 2048, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 2, "wordCostPerPoint": 1 },
+    { "symbol": "ST", "name": "積算タイマ", "areaId": "device", "kind": "timer", "radix": 10, "defaultPoints": 0, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 2, "wordCostPerPoint": 1 },
+    { "symbol": "C", "name": "カウンタ", "areaId": "device", "kind": "counter", "radix": 10, "defaultPoints": 1024, "settingUnit": 16, "maxPoints": 32768, "bitCostPerPoint": 2, "wordCostPerPoint": 1 },
+    { "symbol": "D", "name": "データレジスタ", "areaId": "device", "kind": "word", "radix": 10, "defaultPoints": 12288, "settingUnit": 16, "maxPoints": 4194304, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "W", "name": "リンクレジスタ", "areaId": "device", "kind": "word", "radix": 16, "defaultPoints": 8192, "settingUnit": 16, "maxPoints": 4194304, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "SW", "name": "リンク特殊レジスタ", "areaId": "device", "kind": "word", "radix": 16, "defaultPoints": 2048, "settingUnit": 16, "maxPoints": 4194304, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "Z", "name": "インデックスレジスタ", "areaId": "device", "kind": "word", "radix": 10, "defaultPoints": 20, "settingUnit": 1, "maxPoints": 20, "fixed": true, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "ZR", "name": "ファイルレジスタ", "areaId": "file", "kind": "word", "radix": 10, "defaultPoints": 0, "settingUnit": 1024, "maxPoints": 4184064, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "D(拡張)", "name": "拡張データレジスタ", "areaId": "file", "kind": "word", "radix": 10, "defaultPoints": 0, "settingUnit": 1024, "maxPoints": 4184064, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "W(拡張)", "name": "拡張リンクレジスタ", "areaId": "file", "kind": "word", "radix": 16, "defaultPoints": 0, "settingUnit": 1024, "maxPoints": 4184064, "bitCostPerPoint": 0, "wordCostPerPoint": 1 }
+  ]
+}

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MelsecParam.App.Tests/MelsecParam.App.Tests.csproj" />
+  <Project Path="MelsecParam.App/MelsecParam.App.csproj" />
+</Solution>

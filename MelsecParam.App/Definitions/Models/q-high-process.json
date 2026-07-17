@@ -1,0 +1,30 @@
+{
+  "id": "q-high-process",
+  "displayName": "Qn(H) / QnPH / QnPRH CPU",
+  "series": "MELSEC-Q",
+  "engineeringTool": "GX Developer / GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q02HCPU", "Q06HCPU", "Q12HCPU", "Q25HCPU", "Q02PHCPU", "Q06PHCPU", "Q12PHCPU", "Q25PHCPU", "Q12PRHCPU", "Q25PRHCPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 29, "minKWords": 29, "maxKWords": 29, "configurable": false },
+    { "id": "file", "displayName": "ファイルレジスタ", "defaultKWords": 0, "minKWords": 0, "maxKWords": 0, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none", "q-sram-card-1mb", "q-sram-card-1mb-old", "q-sram-card-2mb", "q-sram-card-2mb-old", "q-sram-card-4mb", "q-sram-card-8mb"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "Q02(H/PH): 28K / Q06(H/PH): 60K / Q12(H/PH/PRH): 124K / Q25(H/PH/PRH): 252Kステップ",
+  "memoryDrives": [
+    { "displayName": "プログラムメモリ", "capacityText": "Q02:112 / Q06:240 / Q12:496 / Q25:1008 Kバイト" },
+    { "displayName": "メモリカード", "capacityText": "選択したSRAMカード容量", "note": "ファイルレジスタ等に使用" },
+    { "displayName": "標準RAM", "capacityText": "Q02:64～128 / Q06:128 / Q12・Q25:256 Kバイト" },
+    { "displayName": "標準ROM", "capacityText": "Q02:112 / Q06:240 / Q12:496 / Q25:1008 Kバイト" }
+  ],
+  "systemDeviceProfileId": "q-common",
+  "deviceOverrides": {
+    "D(拡張)": { "hidden": true },
+    "W(拡張)": { "hidden": true }
+  },
+  "sources": [
+    { "manual": "SH-080803-L - Qn(H)_QnPH_QnPRHCPUユーザーズマニュアル(機能解説・プログラム基礎編).pdf", "pages": ["9-3～9-6", "9-65～9-67"] }
+  ],
+  "notes": ["SRAMカードの実使用可能点数は他ファイル占有分を差し引く。1ファイル最大1018K点。"]
+}

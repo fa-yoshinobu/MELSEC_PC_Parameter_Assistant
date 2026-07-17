@@ -1,0 +1,11 @@
+{
+  "id": "fx5",
+  "displayName": "FX5",
+  "devices": [
+    { "symbol": "P", "displayName": "ポインタ", "pointsText": "固定割付（命令・プログラム構成依存）" },
+    { "symbol": "I", "displayName": "割込みポインタ", "points": 156, "range": "I0～I15、I16～I23、I28～I31、I50～I177" },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 10000, "range": "SM0～SM9999" },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 12000, "range": "SD0～SD11999" },
+    { "symbol": "FX/FY/FD", "displayName": "ファンクションデバイス", "pointsText": "対象外" }
+  ]
+}

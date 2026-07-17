@@ -1,0 +1,13 @@
+{
+  "id": "mx-f",
+  "displayName": "MX-F",
+  "devices": [
+    { "symbol": "P", "displayName": "ポインタ", "points": 8192, "range": "最大16384点" },
+    { "symbol": "I", "displayName": "割込みポインタ", "points": 256 },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 10000 },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 10000 },
+    { "symbol": "FX", "displayName": "ファンクション入力", "points": 16 },
+    { "symbol": "FY", "displayName": "ファンクション出力", "points": 16 },
+    { "symbol": "FD", "displayName": "ファンクションレジスタ", "pointsText": "5点×4ワード" }
+  ]
+}

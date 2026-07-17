@@ -1,0 +1,13 @@
+{
+  "id": "qnu-low",
+  "displayName": "Q00U/Q01U/Q02U",
+  "devices": [
+    { "symbol": "P", "displayName": "ポインタ", "pointsText": "Q00U/Q01U: 512点、Q02U: 4096点" },
+    { "symbol": "I", "displayName": "割込みポインタ", "pointsText": "Q00U/Q01U: 128点、Q02U: 256点" },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 2048 },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 2048 },
+    { "symbol": "FX", "displayName": "ファンクション入力", "points": 16 },
+    { "symbol": "FY", "displayName": "ファンクション出力", "points": 16 },
+    { "symbol": "FD", "displayName": "ファンクションレジスタ", "pointsText": "5点×4ワード" }
+  ]
+}

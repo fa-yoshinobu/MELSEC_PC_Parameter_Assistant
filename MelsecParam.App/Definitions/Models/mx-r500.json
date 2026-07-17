@@ -1,0 +1,41 @@
+{
+  "id": "mx-r500",
+  "displayName": "MXR500シリーズ",
+  "series": "MELSEC MX",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "gxworks3",
+  "modelNames": ["MXR500-128", "MXR500-256"],
+  "areas": [
+    { "id": "device", "displayName": "デバイスエリア", "defaultKWords": 192, "minKWords": 2, "maxKWords": 10240, "configurable": true, "overheadWords": 2048 },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 1852, "minKWords": 0, "maxKWords": 131070, "configurable": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 4, "minKWords": 0, "maxKWords": 1214, "configurable": true },
+    { "id": "local", "displayName": "ローカルデバイスエリア (自動残容量)", "defaultKWords": 120832, "minKWords": 0, "maxKWords": 131072, "configurable": false },
+    { "id": "fileStorage", "displayName": "ファイル格納エリア", "defaultKWords": 8192, "minKWords": 0, "maxKWords": 10208, "configurable": true }
+  ],
+  "sharedMemoryBaseKWords": 131072,
+  "sharedAreaIds": ["device", "label", "latchLabel", "local", "fileStorage"],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "プログラムメモリ150Mバイト（プログラムキャッシュ80Mバイト）",
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 153600 },
+    { "drive": "2", "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ用。デバイス容量計算には不使用" },
+    { "drive": "3", "displayName": "デバイス/ラベルメモリ", "capacityKBytes": 262144 },
+    { "drive": "4", "displayName": "データメモリ", "capacityKBytes": 61440 },
+    { "drive": "5", "displayName": "ファンクションメモリ", "capacityKBytes": 172032 },
+    { "drive": "6", "displayName": "モーションデータメモリ", "capacityKBytes": 1024 }
+  ],
+  "systemDeviceProfileId": "mx-r500",
+  "deviceOverrides": {
+    "M": { "defaultPoints": 65536 },
+    "B": { "defaultPoints": 32768 },
+    "S": { "hidden": true },
+    "LT": { "defaultPoints": 4096 },
+    "D": { "defaultPoints": 65536 },
+    "W": { "defaultPoints": 32768 }
+  },
+  "sources": [
+    { "manual": "SH-082640-D - MELSEC MXコントローラ MX-Rモデルユーザーズマニュアル.pdf", "pages": ["218-221", "322-323", "351以降"] }
+  ],
+  "notes": ["SDカードはバックアップ/ファイル用として表示のみ。デバイス容量には加算しない。"]
+}

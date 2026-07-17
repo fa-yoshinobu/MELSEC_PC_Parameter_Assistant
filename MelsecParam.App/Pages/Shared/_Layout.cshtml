@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MELSEC Device Capacity</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="app-header">
+        <a class="brand" asp-page="/Index">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span><strong>MELSEC</strong><small>Device Capacity Checker</small></span>
+        </a>
+        <span class="header-note">ローカル実行 / JSON定義</span>
+    </header>
+    <main role="main" class="app-shell">@RenderBody()</main>
+    <footer class="app-footer">容量判定は設定検討用です。PLC書込み前にGX Works2 / GX Works3のパラメータチェックを実行してください。</footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

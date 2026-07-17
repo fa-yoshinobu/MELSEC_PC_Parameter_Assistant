@@ -1,0 +1,30 @@
+{
+  "id": "l06-l26cpu",
+  "displayName": "L06CPU / L26CPU 系",
+  "series": "MELSEC-L",
+  "engineeringTool": "GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["L06CPU", "L06CPU-P", "L26CPU", "L26CPU-P", "L26CPU-BT", "L26CPU-PBT"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 29, "minKWords": 29, "maxKWords": 29, "configurable": false },
+    { "id": "file", "displayName": "標準RAM (ファイル/ローカル共用)", "defaultKWords": 384, "minKWords": 0, "maxKWords": 384, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "L06CPU: 60K / L26CPU: 260Kステップ",
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityText": "L06:240 / L26:1040 Kバイト" },
+    { "drive": "2", "displayName": "メモリカード(SD)", "capacityText": "装着カード容量", "note": "バックアップ用。容量計算には不使用" },
+    { "drive": "3", "displayName": "標準RAM", "capacityKBytes": 768 },
+    { "drive": "4", "displayName": "標準ROM", "capacityText": "L06:1024 / L26:2048 Kバイト" }
+  ],
+  "systemDeviceProfileId": "q-common",
+  "deviceOverrides": {
+    "D(拡張)": { "defaultPoints": 131072, "maxPoints": 393216 },
+    "W(拡張)": { "maxPoints": 393216 }
+  },
+  "sources": [
+    { "manual": "SH-080873-AB - MELSEC-L CPUユニットユーザーズマニュアル(機能解説・プログラム基礎編).pdf", "pages": ["31-33", "286-289"] }
+  ],
+  "notes": ["標準RAM 768Kバイトはファイルレジスタ、ローカルデバイス等で共用。SDカードはデバイス容量へ加算しない。"]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "q-basic",
+  "displayName": "Q00CPU / Q01CPU (ベーシックモデル)",
+  "series": "MELSEC-Q",
+  "engineeringTool": "GX Developer",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q00CPU", "Q01CPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 16.4, "minKWords": 16.4, "maxKWords": 16.4, "configurable": false },
+    { "id": "file", "displayName": "ファイルレジスタ", "defaultKWords": 64, "minKWords": 64, "maxKWords": 64, "configurable": false, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "Q00CPU: 8Kステップ / Q01CPU: 14Kステップ",
+  "memoryDrives": [
+    { "displayName": "プログラムメモリ", "capacityText": "Q00CPU: 32Kバイト / Q01CPU: 56Kバイト" },
+    { "displayName": "メモリカード", "capacityText": "選択したSRAMカード容量", "note": "ファイルレジスタ等に使用" },
+    { "displayName": "標準RAM", "capacityKBytes": 128 },
+    { "displayName": "標準ROM", "capacityKBytes": 94 }
+  ],
+  "systemDeviceProfileId": "q-basic",
+  "deviceOverrides": {
+    "X": { "defaultPoints": 2048, "maxPoints": 2048 },
+    "Y": { "defaultPoints": 2048, "maxPoints": 2048 },
+    "L": { "defaultPoints": 2048 },
+    "B": { "defaultPoints": 2048 },
+    "F": { "defaultPoints": 1024 },
+    "SB": { "defaultPoints": 1024, "fixed": true },
+    "V": { "defaultPoints": 1024 },
+    "S": { "defaultPoints": 2048, "maxPoints": 2048, "fixed": true },
+    "T": { "defaultPoints": 512 },
+    "C": { "defaultPoints": 512 },
+    "D": { "defaultPoints": 11136 },
+    "W": { "defaultPoints": 2048 },
+    "SW": { "defaultPoints": 1024, "fixed": true },
+    "Z": { "defaultPoints": 10, "maxPoints": 10 },
+    "ZR": { "defaultPoints": 65536, "maxPoints": 65536, "fixed": true },
+    "D(拡張)": { "hidden": true },
+    "W(拡張)": { "hidden": true }
+  },
+  "sources": [
+    { "manual": "SH-080803-L - Qn(H)_QnPH_QnPRHCPUユーザーズマニュアル(機能解説・プログラム基礎編).pdf", "pages": ["9-1～9-6"] }
+  ]
+}

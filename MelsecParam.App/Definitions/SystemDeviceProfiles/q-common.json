@@ -1,0 +1,13 @@
+{
+  "id": "q-common",
+  "displayName": "Q高機能・ユニバーサル/L",
+  "devices": [
+    { "symbol": "P", "displayName": "ポインタ", "points": 4096, "range": "P0～P4095" },
+    { "symbol": "I", "displayName": "割込みポインタ", "points": 256, "range": "I0～I255" },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 2048 },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 2048 },
+    { "symbol": "FX", "displayName": "ファンクション入力", "points": 16 },
+    { "symbol": "FY", "displayName": "ファンクション出力", "points": 16 },
+    { "symbol": "FD", "displayName": "ファンクションレジスタ", "pointsText": "5点×4ワード" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mx-r300",
+  "displayName": "MX-R MXR300",
+  "devices": [
+    { "symbol": "P", "displayName": "ポインタ", "points": 8192, "range": "最大16384点" },
+    { "symbol": "I", "displayName": "割込みポインタ", "points": 1024 },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 4496 },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 4496 },
+    { "symbol": "FX", "displayName": "ファンクション入力", "points": 16 },
+    { "symbol": "FY", "displayName": "ファンクション出力", "points": 16 },
+    { "symbol": "FD", "displayName": "ファンクションレジスタ", "pointsText": "5点×4ワード" }
+  ]
+}

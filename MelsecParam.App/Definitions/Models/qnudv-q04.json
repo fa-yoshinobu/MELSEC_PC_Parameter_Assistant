@@ -1,0 +1,39 @@
+{
+  "id": "qnudv-q04",
+  "displayName": "Q04UDVCPU / Q04UDPVCPU",
+  "series": "MELSEC-Q ユニバーサル高速タイプ",
+  "engineeringTool": "GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q04UDVCPU", "Q04UDPVCPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 40, "minKWords": 40, "maxKWords": 40, "configurable": false },
+    { "id": "file", "displayName": "標準RAM + 拡張SRAM", "defaultKWords": 128, "minKWords": 0, "maxKWords": 128, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none", "q-sram-cassette-1mb", "q-sram-cassette-2mb", "q-sram-cassette-4mb", "q-sram-cassette-8mb"],
+  "allowedStorageOptionIds": ["none"],
+  "deviceOverrides": {
+    "M": { "defaultPoints": 15360 },
+    "D": { "defaultPoints": 22528 },
+    "ZR": { "maxPoints": 4325376 }
+  },
+  "programCapacityKSteps": 40,
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 160, "note": "40Kステップ" },
+    { "drive": "2", "displayName": "メモリカード(SD)", "capacityText": "装着カード容量", "note": "バックアップ用途のみ。デバイス容量計算対象外" },
+    { "drive": "3", "displayName": "標準RAM", "capacityKBytes": 256, "expandWithMemory": true },
+    { "drive": "4", "displayName": "標準ROM", "capacityKBytes": 1025.5 }
+  ],
+  "auxiliaryDevices": [
+    { "symbol": "P", "displayName": "ポインタ", "points": 4096, "range": "P0～P4095" },
+    { "symbol": "I", "displayName": "割込みポインタ", "points": 256, "range": "I0～I255" },
+    { "symbol": "SM", "displayName": "特殊リレー", "points": 2048, "range": "SM0～SM2047" },
+    { "symbol": "SD", "displayName": "特殊レジスタ", "points": 2048, "range": "SD0～SD2047" },
+    { "symbol": "FX", "displayName": "ファンクション入力", "points": 16, "range": "FX0～FXF" },
+    { "symbol": "FY", "displayName": "ファンクション出力", "points": 16, "range": "FY0～FYF" },
+    { "symbol": "FD", "displayName": "ファンクションレジスタ", "pointsText": "5点×4ワード", "range": "FD0～FD4" }
+  ],
+  "sources": [
+    { "manual": "SH-080802-AC - QnUCPUユーザーズマニュアル(機能解説・プログラム基礎編).pdf", "pages": ["37-39", "332-335"] }
+  ],
+  "notes": ["image.xlsxのGX Works2例と同じ40Kワード級プロファイル。"]
+}

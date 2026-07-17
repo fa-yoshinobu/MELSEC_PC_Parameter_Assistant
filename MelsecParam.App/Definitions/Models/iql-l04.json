@@ -1,0 +1,33 @@
+{
+  "id": "iql-l04",
+  "displayName": "L04HCPU",
+  "series": "MELSEC iQ-L",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "gxworks3",
+  "modelNames": ["L04HCPU"],
+  "areas": [
+    { "id": "device", "displayName": "デバイスエリア", "defaultKWords": 40, "minKWords": 2, "maxKWords": 200, "configurable": true, "overheadWords": 2048 },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 30, "minKWords": 0, "maxKWords": 198, "configurable": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 2, "minKWords": 0, "maxKWords": 160, "configurable": true },
+    { "id": "local", "displayName": "ローカルデバイスエリア (自動残容量)", "defaultKWords": 0, "minKWords": 0, "maxKWords": 200, "configurable": false },
+    { "id": "fileStorage", "displayName": "ファイル格納エリア", "defaultKWords": 128, "minKWords": 0, "maxKWords": 160, "configurable": true }
+  ],
+  "sharedMemoryBaseKWords": 200,
+  "sharedAreaIds": ["device", "label", "latchLabel", "local", "fileStorage"],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityKSteps": 40,
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 160 },
+    { "drive": "2", "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ用。容量計算には不使用" },
+    { "drive": "3", "displayName": "デバイス/ラベルメモリ", "capacityKBytes": 400 },
+    { "drive": "4", "displayName": "データメモリ", "capacityKBytes": 2048 },
+    { "drive": "5", "displayName": "ファンクションメモリ", "capacityKBytes": 5120 }
+  ],
+  "systemDeviceProfileId": "iqr-standard",
+  "sources": [
+    { "manual": "SH-082170CHN-H - MELSEC iQ-L CPU Module User Manual Application.pdf", "pages": ["69-71", "478-480"] },
+    { "manual": "SH-082160CHN-E - MELSEC iQ-L CPU Module User Manual Startup.pdf", "pages": ["20"] }
+  ],
+  "notes": ["参照マニュアルは中国語版。応用編のエリア表と入門編の性能仕様表を照合。"]
+}
