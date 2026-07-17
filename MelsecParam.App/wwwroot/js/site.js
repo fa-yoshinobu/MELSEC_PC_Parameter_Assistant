@@ -36,7 +36,8 @@
     ruleSet: null,
     memoryOption: null,
     devices: [],
-    capacities: new Map()
+    capacities: new Map(),
+    pasteErrors: []
   };
 
   document.addEventListener("DOMContentLoaded", initialise);
@@ -261,6 +262,7 @@
     input.dataset.symbol = device.symbol;
     input.setAttribute("aria-label", `${device.symbol} ${device.name} 点数`);
     input.addEventListener("input", () => {
+      state.pasteErrors = [];
       elements.deviceActionStatus.textContent = device.settingUnit > 1
         ? `編集中: ${device.symbol} は ${formatNumber(device.settingUnit)}点単位（必要なら補正ボタンを押してください）`
         : `編集中: ${device.symbol}`;
@@ -342,6 +344,7 @@
 
     for (const device of state.devices) {
       const input = elements.deviceFormHost.querySelector(`input[data-symbol="${cssEscape(device.symbol)}"]`);
+      if (!input) continue;
       const row = input.closest("tr");
       const value = parsePointText(input.value);
       const rowErrors = [];
@@ -367,7 +370,7 @@
     validateSharedMemory(errors);
     updateGxReferenceTotals(areaUsed, areaWordUsed, areaBitUsed);
     renderSummaries(areaUsed, errors);
-    showErrors(errors);
+    showErrors([...state.pasteErrors, ...errors]);
     renderExcelOutput(errors, areaUsed);
   }
 
@@ -387,9 +390,11 @@
   }
 
   function updateGxReferenceTotals(areaUsed, areaWordUsed, areaBitUsed) {
-    const totalWords = [...areaUsed.values()].reduce((sum, value) => sum + value, 0);
-    const wordWords = [...areaWordUsed.values()].reduce((sum, value) => sum + value, 0);
-    const bitPoints = [...areaBitUsed.values()].reduce((sum, value) => sum + value, 0);
+    const EXCLUDED = new Set(["file", "fileStorage", "local"]);
+    const sumAreas = map => [...map].reduce((sum, [id, value]) => EXCLUDED.has(id) ? sum : sum + value, 0);
+    const totalWords = sumAreas(areaUsed);
+    const wordWords = sumAreas(areaWordUsed);
+    const bitPoints = sumAreas(areaBitUsed);
     setOutput("[data-gx-total='device']", formatWords(totalWords / 1024));
     setOutput("[data-gx-total='word']", formatWords(wordWords / 1024));
     setOutput("[data-gx-total='bit']", formatWords(bitPoints / 1024));
@@ -595,14 +600,25 @@
   }
 
   function applyPaste(text) {
-    const rows = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
-    if (!rows.length) return;
-    const twoColumn = rows.some(row => /\t/.test(row));
+    const lines = text.split(/\r?\n/).map(line => line.trim());
     const inputMap = deviceInputMap();
     const pasteErrors = [];
+    let lockedCount = 0;
 
+    const apply = (device, value) => {
+      const input = inputMap.get(device.symbol);
+      if (!input) return;
+      if (input.disabled) {
+        lockedCount += 1;
+        return;
+      }
+      input.value = formatPointInput(value);
+    };
+
+    const twoColumn = lines.some(line => /\t/.test(line));
     if (twoColumn) {
-      for (const row of rows) {
+      for (const row of lines) {
+        if (row === "") continue;
         const [key, raw] = row.split("\t");
         const device = state.devices.find(item => normalise(item.symbol) === normalise(key) || normalise(item.name) === normalise(key));
         const value = parsePointText(raw);
@@ -610,41 +626,50 @@
           pasteErrors.push(`反映できません: ${row}`);
           continue;
         }
-        const input = inputMap.get(device.symbol);
-        if (!input.disabled) input.value = formatPointInput(value);
+        apply(device, value);
       }
     } else {
-      const values = rows.map(parsePointText);
-      values.forEach((value, index) => {
+      const cells = [...lines];
+      while (cells.length && cells[cells.length - 1] === "") cells.pop();
+      if (!cells.length) return;
+      cells.forEach((cell, index) => {
+        if (cell === "") return;
         const device = state.devices[index];
-        if (value == null || !device) {
-          pasteErrors.push(`反映できません: ${rows[index]}`);
+        const value = parsePointText(cell);
+        if (!device || value == null) {
+          pasteErrors.push(`反映できません: ${cell}`);
           return;
         }
-        const input = inputMap.get(device.symbol);
-        if (!input.disabled) input.value = formatPointInput(value);
+        apply(device, value);
       });
     }
+
+    state.pasteErrors = pasteErrors;
     calculate();
-    elements.deviceActionStatus.textContent = pasteErrors.length
-      ? `一括入力を反映しました。未反映 ${pasteErrors.length}件` 
+    const notes = [];
+    if (pasteErrors.length) notes.push(`未反映 ${pasteErrors.length}件`);
+    if (lockedCount) notes.push(`固定のため未反映 ${lockedCount}件`);
+    elements.deviceActionStatus.textContent = notes.length
+      ? `一括入力を反映しました。${notes.join(" / ")}`
       : "一括入力を反映しました。設定単位は補正ボタンで確認できます。";
-    if (pasteErrors.length) showErrors(pasteErrors);
   }
 
   function pasteIntoTable(event, startSymbol) {
     const text = event.clipboardData?.getData("text");
     if (!text || !/[\r\n]/.test(text)) return;
     event.preventDefault();
-    const values = text.split(/\r?\n/).map(line => line.split("\t")[0].trim()).filter(Boolean).map(parsePointText);
+    const cells = text.split(/\r?\n/).map(line => line.split("\t")[0].trim());
+    while (cells.length && cells[cells.length - 1] === "") cells.pop();
     const start = state.devices.findIndex(device => device.symbol === startSymbol);
     const inputMap = deviceInputMap();
-    values.forEach((value, offset) => {
+    cells.forEach((cell, offset) => {
+      if (cell === "") return;
       const device = state.devices[start + offset];
-      if (device && value != null) {
-        const input = inputMap.get(device.symbol);
-        if (!input.disabled) input.value = formatPointInput(value);
-      }
+      if (!device) return;
+      const value = parsePointText(cell);
+      if (value == null) return;
+      const input = inputMap.get(device.symbol);
+      if (!input.disabled) input.value = formatPointInput(value);
     });
     calculate();
     elements.deviceActionStatus.textContent = "表へ貼り付けました。設定単位は補正ボタンで確認できます。";
@@ -776,7 +801,7 @@
 
   function parsePointText(value) {
     if (value == null) return null;
-    const cleaned = String(value).trim().replace(/[,_，\s]/g, "");
+    const cleaned = String(value).trim().replace(/[,_，\s]/g, "").replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0));
     const match = cleaned.match(/^([+-]?(?:\d+(?:\.\d+)?|\.\d+))([KkＫｋ])?$/);
     if (!match) return null;
     const parsed = Number(match[1]) * (match[2] ? 1024 : 1);
@@ -802,7 +827,7 @@
   }
 
   function statusLabel(status) {
-    return status === "over" ? "オーバー" : status === "warning" ? "残り10%未満" : "範囲内";
+    return status === "over" ? "オーバー" : status === "warning" ? "残り10%以下" : "範囲内";
   }
 
   function findById(items, id) {
