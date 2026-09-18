@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>デバイス容量チェック - MELSEC Device Capacity</title>
+    <link rel="icon" href="data:image/x-icon;base64,__FAVICON_BASE64__" />
+    <style>
+__SITE_CSS__
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <a class="brand" href="#">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span><strong>MELSEC</strong><small>Device Capacity Checker</small></span>
+        </a>
+        <span class="header-note">スタンドアロン版 / __GENERATED_NOTE__</span>
+    </header>
+    <main role="main" class="app-shell">
+<section class="hero">
+    <div>
+        <p class="eyebrow">PCパラメータ設定支援</p>
+        <h1>デバイス設定</h1>
+        <p>GX Works2 / GX Works3の設定表と比較しやすい形式で点数と容量を確認します。</p>
+    </div>
+    <div id="catalogStatus" class="catalog-status" role="status">定義を読み込み中...</div>
+</section>
+
+<section class="panel selector-panel" aria-labelledby="selectionHeading">
+    <div class="section-heading">
+        <div><span class="step-number">01</span><h2 id="selectionHeading">PLCシリーズ・型式とメモリ構成</h2></div>
+        <span id="toolBadge" class="badge badge-neutral">-</span>
+    </div>
+    <div class="control-grid">
+        <label class="field">
+            <span>PLCシリーズ</span>
+            <select id="seriesSelect" disabled><option>読み込み中...</option></select>
+        </label>
+        <label class="field">
+            <span>PLC型式</span>
+            <select id="modelSelect" disabled><option>読み込み中...</option></select>
+        </label>
+        <label class="field">
+            <span>SRAM / 保持オプション</span>
+            <select id="memorySelect" disabled></select>
+        </label>
+    </div>
+    <div id="modelMeta" class="model-meta"></div>
+    <div id="allocationFields" class="allocation-grid"></div>
+    <div id="sharedMemoryPanel" class="shared-memory" hidden></div>
+</section>
+
+<section class="panel table-panel gx-parameter-panel" aria-labelledby="deviceHeading">
+    <div class="section-heading">
+        <div><span class="step-number">02</span><h2 id="deviceHeading">デバイス設定</h2><span id="deviceCount" class="subtle"></span></div>
+        <div class="heading-actions">
+            <span id="deviceActionStatus" class="subtle" role="status">青文字セルを直接編集します（入力中は自動補正しません）</span>
+            <button id="allocateFileRegisterButton" type="button" class="button button-secondary">ファイルレジスタへ全領域割当</button>
+            <button id="correctUnitsButton" type="button" class="button button-secondary">設定単位に切り上げ補正</button>
+            <button id="resetButton" type="button" class="button button-ghost">型式の初期値に戻す</button>
+        </div>
+    </div>
+    <div id="deviceFormHost" class="gx-form-host" aria-live="polite"></div>
+</section>
+
+<section aria-labelledby="summaryHeading">
+    <div class="section-heading outside-heading">
+        <div><span class="step-number">03</span><h2 id="summaryHeading">容量判定</h2></div>
+        <span id="overallStatus" class="status-pill status-neutral">-</span>
+    </div>
+    <div id="summaryCards" class="summary-grid"></div>
+    <div id="errorPanel" class="error-panel" hidden></div>
+</section>
+
+<section id="specificationPanel" class="panel specification-panel" aria-labelledby="specificationHeading" hidden>
+    <div class="section-heading">
+        <div><h2 id="specificationHeading">機種仕様・備考</h2></div>
+        <span class="subtle">機種別JSON定義</span>
+    </div>
+    <div id="specificationContent"></div>
+</section>
+
+<section class="panel excel-output-panel" aria-labelledby="excelOutputHeading">
+    <div class="section-heading">
+        <div><span class="step-number">04</span><h2 id="excelOutputHeading">Excel資料へ出力</h2></div>
+        <span id="copyStatus" class="subtle" role="status">設定変更に合わせて自動更新</span>
+    </div>
+    <div class="excel-output-layout">
+        <label class="field excel-output-field">
+            <span>Excel貼り付け用プレビュー（タブ区切り）</span>
+            <textarea id="excelOutput" rows="12" readonly></textarea>
+        </label>
+        <div class="excel-output-actions">
+            <button id="copyExcelButton" type="button" class="button button-primary">設定結果をExcel用にコピー</button>
+            <p>コピー後、Excelの貼り付け先の左上セルを選んで <kbd>Ctrl</kbd> + <kbd>V</kbd>。型式、容量判定、デバイス設定、メモリ仕様をセルに分けて貼り付けます。</p>
+        </div>
+    </div>
+</section>
+
+<section class="panel optional-input-panel" aria-labelledby="pasteHeading">
+    <details>
+        <summary id="pasteHeading">既存設定をまとめて入力する場合（任意）</summary>
+        <div class="paste-layout optional-input-content">
+            <label class="field paste-field">
+                <span>数値1列、または「記号＋数値」の2列</span>
+                <textarea id="pasteInput" rows="4" placeholder="1列: 8K&#10;15K&#10;8K&#10;&#10;または2列:&#10;M&#9;15K&#10;D&#9;22K"></textarea>
+            </label>
+            <div class="paste-actions">
+                <button id="applyPasteButton" type="button" class="button button-secondary">入力値を表へ反映</button>
+                <button id="clearPasteButton" type="button" class="button button-ghost">入力欄をクリア</button>
+                <p>新規設定では使用不要です。既存資料の数値を再利用するときだけ使用します。</p>
+            </div>
+        </div>
+    </details>
+</section>
+
+<section class="panel source-panel" aria-labelledby="sourceHeading">
+    <details>
+        <summary id="sourceHeading">選択型式の根拠・注意事項</summary>
+        <div id="sourceContent" class="source-content"></div>
+    </details>
+</section>
+
+<noscript><div class="error-panel">このアプリは計算にJavaScriptを使用します。ブラウザーのJavaScriptを有効にしてください。</div></noscript>
+    </main>
+    <footer class="app-footer">容量判定は設定検討用です。PLC書込み前にGX Works2 / GX Works3のパラメータチェックを実行してください。</footer>
+    <script id="catalog-data" type="application/json">__CATALOG_JSON__</script>
+    <script>
+__SITE_JS__
+    </script>
+</body>
+</html>

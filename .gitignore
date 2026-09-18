@@ -1,0 +1,25 @@
+# Python runtime files
+__pycache__/
+*.py[cod]
+.venv/
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+
+# Local logs and runtime files
+*.log
+*.pid
+
+# Local research sources (not redistributed in the repository)
+/Manual/
+/image.xlsx
+
+# Generated inspection files and browser profiles
+/tmp/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

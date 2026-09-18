@@ -1,0 +1,203 @@
+{
+  "memoryOptions": [
+    {
+      "id": "none",
+      "displayName": "装着なし",
+      "kind": "none",
+      "note": "内蔵メモリのみを使用"
+    },
+    {
+      "id": "q-sram-card-1mb",
+      "displayName": "Q2MEM-1MBSN (SRAMカード 1MB)",
+      "kind": "sram-card",
+      "productName": "Q2MEM-1MBSN",
+      "supersedesProductName": "Q2MEM-1MBS",
+      "sizeMBytes": 1,
+      "fileCapacityOverrideKPoints": 512,
+      "note": "ファイル等の占有分を差し引く前の理論容量"
+    },
+    {
+      "id": "q-sram-card-1mb-old",
+      "displayName": "Q2MEM-1MBS (SRAMカード 1MB)",
+      "kind": "sram-card",
+      "productName": "Q2MEM-1MBS",
+      "sizeMBytes": 1,
+      "fileCapacityOverrideKPoints": 512,
+      "note": "ファイル等の占有分を差し引く前の理論容量"
+    },
+    {
+      "id": "q-sram-card-2mb",
+      "displayName": "Q2MEM-2MBSN (SRAMカード 2MB)",
+      "kind": "sram-card",
+      "productName": "Q2MEM-2MBSN",
+      "supersedesProductName": "Q2MEM-2MBS",
+      "sizeMBytes": 2,
+      "fileCapacityOverrideKPoints": 1024,
+      "note": "ファイル等の占有分を差し引く前の理論容量"
+    },
+    {
+      "id": "q-sram-card-2mb-old",
+      "displayName": "Q2MEM-2MBS (SRAMカード 2MB)",
+      "kind": "sram-card",
+      "productName": "Q2MEM-2MBS",
+      "sizeMBytes": 2,
+      "fileCapacityOverrideKPoints": 1024,
+      "note": "ファイル等の占有分を差し引く前の理論容量"
+    },
+    {
+      "id": "q-sram-card-4mb",
+      "displayName": "Q3MEM-4MBS (SRAMカード 4MB)",
+      "kind": "sram-card",
+      "productName": "Q3MEM-4MBS",
+      "sizeMBytes": 4,
+      "fileCapacityOverrideKPoints": 2048,
+      "note": "ファイル等の占有分を差し引く前の理論容量"
+    },
+    {
+      "id": "q-sram-card-8mb",
+      "displayName": "Q3MEM-8MBS (SRAMカード 8MB)",
+      "kind": "sram-card",
+      "productName": "Q3MEM-8MBS",
+      "sizeMBytes": 8,
+      "fileCapacityOverrideKPoints": 4086,
+      "note": "物理容量は4096Kワード相当。CPU上限4086K点を適用し、さらにファイル等の占有分を差し引く必要あり"
+    },
+    {
+      "id": "q-sram-cassette-1mb",
+      "displayName": "Q4MCA-1MBS (拡張SRAM 1MB)",
+      "kind": "sram-cassette",
+      "productName": "Q4MCA-1MBS",
+      "sizeMBytes": 1,
+      "fileCapacityAddedKPoints": 512
+    },
+    {
+      "id": "q-sram-cassette-2mb",
+      "displayName": "Q4MCA-2MBS (拡張SRAM 2MB)",
+      "kind": "sram-cassette",
+      "productName": "Q4MCA-2MBS",
+      "sizeMBytes": 2,
+      "fileCapacityAddedKPoints": 1024
+    },
+    {
+      "id": "q-sram-cassette-4mb",
+      "displayName": "Q4MCA-4MBS (拡張SRAM 4MB)",
+      "kind": "sram-cassette",
+      "productName": "Q4MCA-4MBS",
+      "sizeMBytes": 4,
+      "fileCapacityAddedKPoints": 2048
+    },
+    {
+      "id": "q-sram-cassette-8mb",
+      "displayName": "Q4MCA-8MBS (拡張SRAM 8MB)",
+      "kind": "sram-cassette",
+      "productName": "Q4MCA-8MBS",
+      "sizeMBytes": 8,
+      "fileCapacityAddedKPoints": 4096
+    },
+    {
+      "id": "iqr-sram-1mb",
+      "displayName": "NZ2MC-1MBS (拡張SRAM 1MB)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-1MBS",
+      "sizeMBytes": 1,
+      "sharedMemoryAddedKWords": 512
+    },
+    {
+      "id": "iqr-sram-2mb",
+      "displayName": "NZ2MC-2MBS (拡張SRAM 2MB)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-2MBS",
+      "sizeMBytes": 2,
+      "sharedMemoryAddedKWords": 1024
+    },
+    {
+      "id": "iqr-sram-4mb",
+      "displayName": "NZ2MC-4MBS (拡張SRAM 4MB)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-4MBS",
+      "sizeMBytes": 4,
+      "sharedMemoryAddedKWords": 2048
+    },
+    {
+      "id": "iqr-sram-8mb",
+      "displayName": "NZ2MC-8MBS (拡張SRAM 8MB)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-8MBS",
+      "sizeMBytes": 8,
+      "sharedMemoryAddedKWords": 4096
+    },
+    {
+      "id": "iqr-sram-16mb",
+      "displayName": "NZ2MC-16MBS (拡張SRAM 16MB)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-16MBS",
+      "sizeMBytes": 16,
+      "sharedMemoryAddedKWords": 8192
+    },
+    {
+      "id": "process-sram-2mb",
+      "displayName": "NZ2MC-2MBSE (拡張SRAM 2MB・ECC対応品)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-2MBSE",
+      "sizeMBytes": 2,
+      "sharedMemoryAddedKWords": 1024,
+      "note": "ECC対応品"
+    },
+    {
+      "id": "process-sram-8mb",
+      "displayName": "NZ2MC-8MBSE (拡張SRAM 8MB・ECC対応品)",
+      "kind": "sram-cassette",
+      "productName": "NZ2MC-8MBSE",
+      "sizeMBytes": 8,
+      "sharedMemoryAddedKWords": 4096,
+      "note": "ECC対応品"
+    },
+    {
+      "id": "iqr-batteryless",
+      "displayName": "NZ1BLC (バッテリレスオプションカセット)",
+      "kind": "retention",
+      "productName": "NZ1BLC",
+      "note": "容量増設ではなく、対応CPUのデバイス/ラベル停電保持に使用"
+    },
+    {
+      "id": "fx5-battery",
+      "displayName": "オプションバッテリ装着",
+      "kind": "retention",
+      "note": "容量増設ではなく、標準エリアの停電保持範囲を拡張"
+    }
+  ],
+  "storageOptions": [
+    {
+      "id": "none",
+      "displayName": "SDメモリーカードなし"
+    },
+    {
+      "id": "sd-2gb",
+      "displayName": "NZ1MEM-2GBSD (2GB)",
+      "productName": "NZ1MEM-2GBSD",
+      "capacityGBytes": 2,
+      "note": "デバイスエリア容量には加算されない"
+    },
+    {
+      "id": "sd-4gb",
+      "displayName": "NZ1MEM-4GBSD (4GB)",
+      "productName": "NZ1MEM-4GBSD",
+      "capacityGBytes": 4,
+      "note": "デバイスエリア容量には加算されない"
+    },
+    {
+      "id": "sd-8gb",
+      "displayName": "NZ1MEM-8GBSD (8GB)",
+      "productName": "NZ1MEM-8GBSD",
+      "capacityGBytes": 8,
+      "note": "デバイスエリア容量には加算されない"
+    },
+    {
+      "id": "sd-16gb",
+      "displayName": "NZ1MEM-16GBSD (16GB)",
+      "productName": "NZ1MEM-16GBSD",
+      "capacityGBytes": 16,
+      "note": "デバイスエリア容量には加算されない"
+    }
+  ]
+}

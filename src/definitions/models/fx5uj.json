@@ -1,0 +1,46 @@
+{
+  "id": "fx5uj",
+  "displayName": "FX5UJ CPUユニット",
+  "series": "MELSEC iQ-F",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "fx5",
+  "modelNames": ["FX5UJ"],
+  "areas": [
+    { "id": "high", "displayName": "デバイス (高速) エリア", "defaultKWords": 12, "minKWords": 12, "maxKWords": 12, "configurable": false },
+    { "id": "standard", "displayName": "デバイス (標準) エリア", "defaultKWords": 35, "minKWords": 35, "maxKWords": 35, "configurable": false },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 12, "minKWords": 12, "maxKWords": 12, "configurable": false },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 1, "minKWords": 1, "maxKWords": 1, "configurable": false }
+  ],
+  "memoryBlocks": [
+    { "id": "high", "displayName": "高速エリア", "totalKWords": 12, "areaIds": ["high"] },
+    { "id": "standard", "displayName": "標準エリア", "totalKWords": 48, "areaIds": ["label", "latchLabel", "standard"] }
+  ],
+  "allowedMemoryOptionIds": ["none", "fx5-battery"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityKSteps": 48,
+  "memoryDrives": [
+    { "displayName": "データメモリ", "capacityKBytes": 5120, "note": "プログラムファイル1MB、復元情報1MB、パラメータ1MB、コメント2MB" },
+    { "displayName": "デバイス/ラベルメモリ", "capacityText": "標準48Kワード" },
+    { "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ/ファイル用。デバイス容量計算には不使用" }
+  ],
+  "systemDeviceProfileId": "fx5",
+  "deviceOverrides": {
+    "M": { "defaultPoints": 7680, "maxPoints": 7680, "settingUnit": 1, "fixed": true },
+    "B": { "defaultPoints": 2048, "maxPoints": 2048, "settingUnit": 1, "fixed": true },
+    "SB": { "defaultPoints": 2048, "maxPoints": 2048, "settingUnit": 1, "fixed": true },
+    "F": { "defaultPoints": 128, "maxPoints": 128, "settingUnit": 1, "fixed": true },
+    "T": { "defaultPoints": 512, "maxPoints": 512, "settingUnit": 1, "fixed": true },
+    "ST": { "defaultPoints": 16, "maxPoints": 16, "settingUnit": 1, "fixed": true },
+    "C": { "defaultPoints": 256, "maxPoints": 256, "settingUnit": 1, "fixed": true },
+    "LC": { "defaultPoints": 64, "maxPoints": 64, "settingUnit": 1, "fixed": true },
+    "D": { "defaultPoints": 8000, "maxPoints": 8000, "settingUnit": 1, "fixed": true },
+    "L": { "defaultPoints": 7680, "maxPoints": 7680, "settingUnit": 1, "fixed": true },
+    "R": { "defaultPoints": 32768, "maxPoints": 32768, "settingUnit": 1, "fixed": true },
+    "W": { "defaultPoints": 1024, "maxPoints": 1024, "settingUnit": 1, "fixed": true },
+    "SW": { "defaultPoints": 1024, "maxPoints": 1024, "settingUnit": 1, "fixed": true }
+  },
+  "sources": [
+    { "manual": "JY997D54301S - MELSEC iQ-F FX5ユーザーズマニュアル(応用編)", "pages": ["117-122"] }
+  ],
+  "notes": ["FX5UJはデバイス/ラベルメモリエリア設定を変更できない。"]
+}

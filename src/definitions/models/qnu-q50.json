@@ -1,0 +1,25 @@
+{
+  "id": "qnu-q50",
+  "displayName": "Q50UDEHCPU",
+  "series": "MELSEC-Q ユニバーサルモデル",
+  "engineeringTool": "GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q50UDEHCPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 29, "minKWords": 29, "maxKWords": 29, "configurable": false },
+    { "id": "file", "displayName": "標準RAM / SRAMカード", "defaultKWords": 768, "minKWords": 0, "maxKWords": 768, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none", "q-sram-card-1mb", "q-sram-card-1mb-old", "q-sram-card-2mb", "q-sram-card-2mb-old", "q-sram-card-4mb", "q-sram-card-8mb"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityKSteps": 500,
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 2000 },
+    { "drive": "2", "displayName": "メモリカード(SD)", "capacityText": "装着カード容量", "note": "バックアップ用。容量計算には不使用" },
+    { "drive": "3", "displayName": "標準RAM", "capacityKBytes": 1536 },
+    { "drive": "4", "displayName": "標準ROM", "capacityKBytes": 8192 }
+  ],
+  "systemDeviceProfileId": "q-common",
+  "sources": [
+    { "manual": "SH-080802-AC - QnUCPUユーザーズマニュアル(機能解説・プログラム基礎編)", "pages": ["36-39", "328-335"] }
+  ]
+}

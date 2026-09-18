@@ -1,0 +1,22 @@
+{
+  "id": "fx5",
+  "displayName": "MELSEC iQ-F FX5 デバイスエリア計算",
+  "devices": [
+    { "symbol": "X", "name": "入力", "areaId": "high", "kind": "bit", "radix": 8, "defaultPoints": 1024, "settingUnit": 1, "maxPoints": 1024, "fixed": true, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "Y", "name": "出力", "areaId": "high", "kind": "bit", "radix": 8, "defaultPoints": 1024, "settingUnit": 1, "maxPoints": 1024, "fixed": true, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "M", "name": "内部リレー", "areaId": "high", "kind": "bit", "radix": 10, "defaultPoints": 7680, "settingUnit": 64, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "B", "name": "リンクリレー", "areaId": "high", "kind": "bit", "radix": 16, "defaultPoints": 2048, "settingUnit": 64, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "SB", "name": "リンク特殊リレー", "areaId": "high", "kind": "bit", "radix": 16, "defaultPoints": 2048, "settingUnit": 64, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "F", "name": "アナンシェータ", "areaId": "high", "kind": "bit", "radix": 10, "defaultPoints": 128, "settingUnit": 64, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "S", "name": "ステップリレー", "areaId": "high", "kind": "bit", "radix": 10, "defaultPoints": 4096, "settingUnit": 1, "maxPoints": 4096, "fixed": true, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "T", "name": "タイマ", "areaId": "high", "kind": "timer", "radix": 10, "defaultPoints": 512, "settingUnit": 16, "maxPoints": 1024, "bitCostPerPoint": 1, "wordCostPerPoint": 1 },
+    { "symbol": "ST", "name": "積算タイマ", "areaId": "high", "kind": "timer", "radix": 10, "defaultPoints": 16, "settingUnit": 16, "maxPoints": 1024, "bitCostPerPoint": 1, "wordCostPerPoint": 1 },
+    { "symbol": "C", "name": "カウンタ", "areaId": "high", "kind": "counter", "radix": 10, "defaultPoints": 256, "settingUnit": 16, "maxPoints": 1024, "bitCostPerPoint": 2, "wordCostPerPoint": 1 },
+    { "symbol": "LC", "name": "ロングカウンタ", "areaId": "high", "kind": "long-counter", "radix": 10, "defaultPoints": 64, "settingUnit": 16, "maxPoints": 1024, "bitCostPerPoint": 2, "wordCostPerPoint": 2 },
+    { "symbol": "D", "name": "データレジスタ", "areaId": "high", "kind": "word", "radix": 10, "defaultPoints": 8000, "settingUnit": 4, "maxPoints": 8000, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "L", "name": "ラッチリレー", "areaId": "high", "kind": "bit", "radix": 10, "defaultPoints": 7680, "settingUnit": 64, "maxPoints": 32768, "bitCostPerPoint": 1, "wordCostPerPoint": 0 },
+    { "symbol": "R", "name": "ファイルレジスタ", "areaId": "standard", "kind": "word", "radix": 10, "defaultPoints": 32768, "settingUnit": 4, "maxPoints": 32768, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "W", "name": "リンクレジスタ", "areaId": "standard", "kind": "word", "radix": 16, "defaultPoints": 1024, "settingUnit": 4, "maxPoints": 32768, "bitCostPerPoint": 0, "wordCostPerPoint": 1 },
+    { "symbol": "SW", "name": "リンク特殊レジスタ", "areaId": "standard", "kind": "word", "radix": 16, "defaultPoints": 1024, "settingUnit": 4, "maxPoints": 32768, "bitCostPerPoint": 0, "wordCostPerPoint": 1 }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "qnu-low",
+  "displayName": "Q00UCPU / Q01UCPU",
+  "series": "MELSEC-Q ユニバーサルモデル",
+  "engineeringTool": "GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q00UCPU", "Q01UCPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 29, "minKWords": 29, "maxKWords": 29, "configurable": false },
+    { "id": "file", "displayName": "標準RAM (ファイル等共用)", "defaultKWords": 64, "minKWords": 0, "maxKWords": 64, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "Q00UCPU: 10K / Q01UCPU: 15Kステップ",
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityText": "Q00U:40 / Q01U:60 Kバイト" },
+    { "drive": "3", "displayName": "標準RAM", "capacityKBytes": 128 },
+    { "drive": "4", "displayName": "標準ROM", "capacityKBytes": 512 }
+  ],
+  "systemDeviceProfileId": "qnu-low",
+  "deviceOverrides": {
+    "S": { "maxPoints": 8192 },
+    "ZR": { "maxPoints": 65536 }
+  },
+  "sources": [
+    { "manual": "SH-080802-AC - QnUCPUユーザーズマニュアル(機能解説・プログラム基礎編)", "pages": ["36-39", "328-335", "383", "393"] }
+  ],
+  "notes": ["Q00UCPU/Q01UCPUはメモリカードを使用できない（SH-080802 p.393）。ファイルレジスタは標準RAMの最大64K点。"]
+}

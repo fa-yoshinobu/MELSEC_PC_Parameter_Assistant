@@ -1,0 +1,30 @@
+{
+  "id": "iqr-r04",
+  "displayName": "R04CPU / R04ENCPU",
+  "series": "MELSEC iQ-R",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "gxworks3",
+  "modelNames": ["R04CPU", "R04ENCPU"],
+  "areas": [
+    { "id": "device", "displayName": "デバイスエリア", "defaultKWords": 40, "minKWords": 2, "maxKWords": 200, "configurable": true, "expandWithMemory": true, "overheadWords": 2048 },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 30, "minKWords": 0, "maxKWords": 198, "configurable": true, "expandWithMemory": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 2, "minKWords": 0, "maxKWords": 160, "configurable": true, "expandWithMemory": true },
+    { "id": "local", "displayName": "ローカルデバイスエリア (自動残容量)", "defaultKWords": 0, "minKWords": 0, "maxKWords": 200, "configurable": false, "expandWithMemory": true },
+    { "id": "fileStorage", "displayName": "ファイル格納エリア", "defaultKWords": 128, "minKWords": 0, "maxKWords": 160, "configurable": true, "expandWithMemory": true }
+  ],
+  "sharedMemoryBaseKWords": 200,
+  "sharedAreaIds": ["device", "label", "latchLabel", "local", "fileStorage"],
+  "allowedMemoryOptionIds": ["none", "iqr-sram-1mb", "iqr-sram-2mb", "iqr-sram-4mb", "iqr-sram-8mb", "iqr-sram-16mb", "iqr-batteryless"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityKSteps": 40,
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 160 },
+    { "drive": "2", "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ用。容量計算には不使用" },
+    { "drive": "3", "displayName": "デバイス/ラベルメモリ", "capacityKBytes": 400, "expandWithMemory": true },
+    { "drive": "4", "displayName": "データメモリ", "capacityKBytes": 2048 }
+  ],
+  "systemDeviceProfileId": "iqr-standard",
+  "sources": [
+    { "manual": "SH-082487-G - MELSEC iQ-R シーケンサCPUユニットユーザーズマニュアル", "pages": ["127-129", "406-408"] }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "qnh-q02",
+  "displayName": "Q02CPU",
+  "series": "MELSEC-Q",
+  "engineeringTool": "GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q02CPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 29, "minKWords": 29, "maxKWords": 29, "configurable": false },
+    { "id": "file", "displayName": "ファイルレジスタ (標準RAM / SRAMカード)", "defaultKWords": 32, "minKWords": 0, "maxKWords": 32, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none", "q-sram-card-1mb", "q-sram-card-1mb-old", "q-sram-card-2mb", "q-sram-card-2mb-old", "q-sram-card-4mb", "q-sram-card-8mb"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityKSteps": 28,
+  "memoryDrives": [
+    { "displayName": "プログラムメモリ", "capacityKBytes": 112 },
+    { "displayName": "メモリカード", "capacityText": "選択したSRAMカード容量", "note": "ファイルレジスタ等に使用" },
+    { "displayName": "標準RAM", "capacityKBytes": 64 },
+    { "displayName": "標準ROM", "capacityKBytes": 112 }
+  ],
+  "systemDeviceProfileId": "q-common",
+  "deviceOverrides": {
+    "Z": { "defaultPoints": 16, "maxPoints": 16 },
+    "M": { "maxPoints": 32768 },
+    "B": { "maxPoints": 32768 },
+    "ZR": { "maxPoints": 1042432 },
+    "D(拡張)": { "hidden": true },
+    "W(拡張)": { "hidden": true }
+  },
+  "sources": [
+    { "manual": "SH-080803-O - Qn(H)_QnPH_QnPRHCPUユーザーズマニュアル(機能解説・プログラム基礎編)", "pages": ["9-3～9-6", "表9.10 (PDF p.437)"] }
+  ],
+  "notes": ["標準RAMのファイルレジスタは32K点（表9.10）。CPUユニットのバージョンにより標準RAM容量が異なる（付2.2）。", "SRAMカードの実使用可能点数は他ファイル占有分を差し引く。1ファイル最大1018K点。"]
+}

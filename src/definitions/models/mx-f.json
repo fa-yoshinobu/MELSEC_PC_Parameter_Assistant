@@ -1,0 +1,40 @@
+{
+  "id": "mx-f",
+  "displayName": "MX-Fモデル",
+  "series": "MELSEC MX",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "gxworks3",
+  "modelNames": ["MXF100-8-N32", "MXF100-8-P32", "MXF100-16-N32", "MXF100-16-P32"],
+  "areas": [
+    { "id": "device", "displayName": "デバイスエリア", "defaultKWords": 192, "minKWords": 2, "maxKWords": 4096, "configurable": true, "overheadWords": 2048 },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 1854, "minKWords": 0, "maxKWords": 4094, "configurable": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 2, "minKWords": 0, "maxKWords": 168, "configurable": true },
+    { "id": "local", "displayName": "ローカルデバイスエリア (自動残容量)", "defaultKWords": 0, "minKWords": 0, "maxKWords": 4096, "configurable": false },
+    { "id": "fileStorage", "displayName": "ファイル格納エリア", "defaultKWords": 2048, "minKWords": 2, "maxKWords": 4064, "configurable": true }
+  ],
+  "sharedMemoryBaseKWords": 4096,
+  "sharedAreaIds": ["device", "label", "latchLabel", "local", "fileStorage"],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "プログラムメモリ30Mバイト（実行部はプログラムキャッシュ12Mバイト以内）",
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 30720 },
+    { "drive": "2", "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ用。デバイス容量計算には不使用" },
+    { "drive": "3", "displayName": "デバイス/ラベルメモリ", "capacityKBytes": 8192 },
+    { "drive": "4", "displayName": "データメモリ", "capacityKBytes": 15360 },
+    { "drive": "5", "displayName": "ファンクションメモリ", "capacityKBytes": 172032 },
+    { "drive": "6", "displayName": "モーションデータメモリ", "capacityKBytes": 256 }
+  ],
+  "systemDeviceProfileId": "mx-f",
+  "deviceOverrides": {
+    "M": { "defaultPoints": 65536, "maxPoints": 67084288 },
+    "B": { "defaultPoints": 32768, "maxPoints": 67084288 },
+    "S": { "hidden": true },
+    "LT": { "defaultPoints": 4096, "maxPoints": 1048192 },
+    "D": { "defaultPoints": 65536, "maxPoints": 4192768 },
+    "W": { "defaultPoints": 32768, "maxPoints": 4192768 }
+  },
+  "sources": [
+    { "manual": "SH-082633-E - MELSEC MXコントローラ MX-Fモデルユーザーズマニュアル", "pages": ["272", "277-278", "387-392"] }
+  ]
+}

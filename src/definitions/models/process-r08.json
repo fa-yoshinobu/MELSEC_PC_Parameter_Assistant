@@ -1,0 +1,30 @@
+{
+  "id": "process-r08",
+  "displayName": "R08PCPU",
+  "series": "MELSEC iQ-R プロセスCPU",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "gxworks3",
+  "modelNames": ["R08PCPU"],
+  "areas": [
+    { "id": "device", "displayName": "デバイスエリア", "defaultKWords": 40, "minKWords": 2, "maxKWords": 594, "configurable": true, "expandWithMemory": true, "overheadWords": 2048 },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 40, "minKWords": 0, "maxKWords": 592, "configurable": true, "expandWithMemory": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 2, "minKWords": 0, "maxKWords": 544, "configurable": true, "expandWithMemory": true },
+    { "id": "local", "displayName": "ローカルデバイスエリア (自動残容量)", "defaultKWords": 0, "minKWords": 0, "maxKWords": 594, "configurable": false, "expandWithMemory": true },
+    { "id": "fileStorage", "displayName": "ファイル格納エリア", "defaultKWords": 512, "minKWords": 0, "maxKWords": 544, "configurable": true, "expandWithMemory": true }
+  ],
+  "sharedMemoryBaseKWords": 594,
+  "sharedAreaIds": ["device", "label", "latchLabel", "local", "fileStorage"],
+  "allowedMemoryOptionIds": ["none", "process-sram-2mb", "process-sram-8mb"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityKSteps": 80,
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityKBytes": 320 },
+    { "drive": "2", "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ用。容量計算には不使用" },
+    { "drive": "3", "displayName": "デバイス/ラベルメモリ", "capacityKBytes": 1188, "expandWithMemory": true },
+    { "drive": "4", "displayName": "データメモリ", "capacityKBytes": 5120 }
+  ],
+  "systemDeviceProfileId": "iqr-standard",
+  "sources": [
+    { "manual": "SH-082492-E - MELSEC iQ-R プロセスCPUユニットユーザーズマニュアル", "pages": ["145-147", "454-456"] }
+  ]
+}

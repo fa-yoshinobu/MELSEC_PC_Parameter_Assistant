@@ -1,0 +1,34 @@
+{
+  "id": "qnh-q12-q25",
+  "displayName": "Q12H / Q25H / Q12PH / Q25PH / Q12PRH / Q25PRHCPU",
+  "series": "MELSEC-Q",
+  "engineeringTool": "GX Works2",
+  "ruleSetId": "gxworks2",
+  "modelNames": ["Q12HCPU", "Q25HCPU", "Q12PHCPU", "Q25PHCPU", "Q12PRHCPU", "Q25PRHCPU"],
+  "areas": [
+    { "id": "device", "displayName": "内部ユーザデバイス", "defaultKWords": 29, "minKWords": 29, "maxKWords": 29, "configurable": false },
+    { "id": "file", "displayName": "ファイルレジスタ (標準RAM / SRAMカード)", "defaultKWords": 128, "minKWords": 0, "maxKWords": 128, "configurable": true, "capacityFromMemoryOption": true }
+  ],
+  "allowedMemoryOptionIds": ["none", "q-sram-card-1mb", "q-sram-card-1mb-old", "q-sram-card-2mb", "q-sram-card-2mb-old", "q-sram-card-4mb", "q-sram-card-8mb"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "Q12H/Q12PH/Q12PRH: 124K / Q25H/Q25PH/Q25PRH: 252Kステップ",
+  "memoryDrives": [
+    { "displayName": "プログラムメモリ", "capacityText": "Q12:496 / Q25:1008 Kバイト" },
+    { "displayName": "メモリカード", "capacityText": "選択したSRAMカード容量", "note": "ファイルレジスタ等に使用" },
+    { "displayName": "標準RAM", "capacityKBytes": 256 },
+    { "displayName": "標準ROM", "capacityText": "Q12:496 / Q25:1008 Kバイト" }
+  ],
+  "systemDeviceProfileId": "q-common",
+  "deviceOverrides": {
+    "Z": { "defaultPoints": 16, "maxPoints": 16 },
+    "M": { "maxPoints": 32768 },
+    "B": { "maxPoints": 32768 },
+    "ZR": { "maxPoints": 1042432 },
+    "D(拡張)": { "hidden": true },
+    "W(拡張)": { "hidden": true }
+  },
+  "sources": [
+    { "manual": "SH-080803-O - Qn(H)_QnPH_QnPRHCPUユーザーズマニュアル(機能解説・プログラム基礎編)", "pages": ["9-3～9-6", "表9.10 (PDF p.437)"] }
+  ],
+  "notes": ["標準RAMのファイルレジスタは128K点（表9.10）。CPUユニットのバージョンにより標準RAM容量が異なる（付2.2）。", "SRAMカードの実使用可能点数は他ファイル占有分を差し引く。1ファイル最大1018K点。"]
+}

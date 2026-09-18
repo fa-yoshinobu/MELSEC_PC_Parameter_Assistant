@@ -1,0 +1,41 @@
+{
+  "id": "iqr-r00-r02",
+  "displayName": "R00CPU / R01CPU / R02CPU",
+  "series": "MELSEC iQ-R",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "gxworks3",
+  "modelNames": ["R00CPU", "R01CPU", "R02CPU"],
+  "areas": [
+    { "id": "device", "displayName": "デバイスエリア", "defaultKWords": 30, "minKWords": 1, "maxKWords": 126, "configurable": true, "overheadWords": 1024 },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 30, "minKWords": 0, "maxKWords": 125, "configurable": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 2, "minKWords": 0, "maxKWords": 96, "configurable": true },
+    { "id": "local", "displayName": "ローカルデバイスエリア (自動残容量)", "defaultKWords": 0, "minKWords": 0, "maxKWords": 126, "configurable": false },
+    { "id": "fileStorage", "displayName": "ファイル格納エリア", "defaultKWords": 64, "minKWords": 0, "maxKWords": 96, "configurable": true }
+  ],
+  "sharedMemoryBaseKWords": 126,
+  "sharedAreaIds": ["device", "label", "latchLabel", "local", "fileStorage"],
+  "allowedMemoryOptionIds": ["none"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "R00CPU: 10K / R01CPU: 15K / R02CPU: 20Kステップ",
+  "memoryDrives": [
+    { "drive": "0", "displayName": "プログラムメモリ", "capacityText": "R00:40 / R01:60 / R02:80 Kバイト" },
+    { "drive": "2", "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ用。容量計算には不使用" },
+    { "drive": "3", "displayName": "デバイス/ラベルメモリ", "capacityKBytes": 252, "expandWithMemory": true },
+    { "drive": "4", "displayName": "データメモリ", "capacityKBytes": 1536 }
+  ],
+  "systemDeviceProfileId": "iqr-standard",
+  "deviceOverrides": {
+    "X": { "defaultPoints": 8192, "maxPoints": 8192 },
+    "Y": { "defaultPoints": 8192, "maxPoints": 8192 },
+    "M": { "defaultPoints": 8192 },
+    "T": { "defaultPoints": 2048 },
+    "LT": { "defaultPoints": 0 },
+    "C": { "defaultPoints": 1024 },
+    "LC": { "defaultPoints": 0 },
+    "D": { "defaultPoints": 12288 }
+  },
+  "sources": [
+    { "manual": "SH-082487-G - MELSEC iQ-R シーケンサCPUユニットユーザーズマニュアル", "pages": ["127-128", "406-408"] }
+  ],
+  "notes": ["R00/R01/R02では拡張SRAMカセット設定なし。", "デバイスエリアの固定領域は最小容量1Kワードに合わせて計算。"]
+}

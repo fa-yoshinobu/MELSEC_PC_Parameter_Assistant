@@ -1,0 +1,32 @@
+{
+  "id": "fx5u-uc",
+  "displayName": "FX5U / FX5UC CPUユニット",
+  "series": "MELSEC iQ-F",
+  "engineeringTool": "GX Works3",
+  "ruleSetId": "fx5",
+  "modelNames": ["FX5U", "FX5UC"],
+  "areas": [
+    { "id": "high", "displayName": "デバイス (高速) エリア", "defaultKWords": 12, "minKWords": 0, "maxKWords": 12, "configurable": true },
+    { "id": "standard", "displayName": "デバイス (標準) エリア", "defaultKWords": 35, "minKWords": 0, "maxKWords": 63, "configurable": true },
+    { "id": "label", "displayName": "ラベルエリア", "defaultKWords": 12, "minKWords": 0, "maxKWords": 63, "configurable": true },
+    { "id": "latchLabel", "displayName": "ラッチラベルエリア", "defaultKWords": 1, "minKWords": 0, "maxKWords": 63, "configurable": true }
+  ],
+  "memoryBlocks": [
+    { "id": "high", "displayName": "高速エリア", "totalKWords": 12, "areaIds": ["high"] },
+    { "id": "standard", "displayName": "標準エリア", "totalKWords": 63, "areaIds": ["label", "latchLabel", "standard"] }
+  ],
+  "labelPlacementSelectable": true,
+  "allowedMemoryOptionIds": ["none", "fx5-battery"],
+  "allowedStorageOptionIds": ["none"],
+  "programCapacityText": "64Kステップ（初期値）/ 128Kステップ（変更時）",
+  "memoryDrives": [
+    { "displayName": "データメモリ", "capacityKBytes": 5120, "note": "プログラムファイル1MB、復元情報1MB、パラメータ1MB、コメント2MB" },
+    { "displayName": "デバイス/ラベルメモリ", "capacityText": "標準63Kワード + 高速12Kワード" },
+    { "displayName": "SDメモリカード", "capacityText": "装着カード容量", "note": "バックアップ/ファイル用。デバイス容量計算には不使用" }
+  ],
+  "systemDeviceProfileId": "fx5",
+  "sources": [
+    { "manual": "JY997D54301S - MELSEC iQ-F FX5ユーザーズマニュアル(応用編)", "pages": ["117-122"] }
+  ],
+  "notes": ["GX Works3の初期構成相当の点数を入力済み。必要に応じて実プロジェクト値をExcelから上書きする。", "ラベル/ラッチラベルを標準エリア配置とした場合はラベル+ラッチラベル+デバイス(標準)が63Kワード以内、高速エリア配置とした場合はラベル+ラッチラベル+デバイス(高速)が12Kワード以内（1Kワード単位）。", "ラッチ領域（標準ラッチ12Kワード/バッテリラッチ）の容量判定は未対応。GX Works3の設定領域確認で確認する。"]
+}
